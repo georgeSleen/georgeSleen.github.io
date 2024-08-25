@@ -1,2 +1,2 @@
-# george-sleen.github.io
+# georgeSleen.github.io
 Personal website and portfolio
