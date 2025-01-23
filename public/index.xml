@@ -5,7 +5,9 @@
     <link>http://localhost:1313/</link>
     <description>Recent content on George Sleen</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
+    <language>en</language>
+    <managingEditor>gsleen@gmail.com (George Sleen)</managingEditor>
+    <webMaster>gsleen@gmail.com (George Sleen)</webMaster>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
