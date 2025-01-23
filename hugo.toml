@@ -1,0 +1,6 @@
+baseURL = 'https://georgeSleen.github.io'
+languageCode = 'en-us'
+title = 'George Sleen'
+
+[[module.imports]]
+    path = "github.com/halogenica/beautifulhugo"
