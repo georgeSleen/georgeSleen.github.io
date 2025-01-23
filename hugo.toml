@@ -47,17 +47,17 @@ pygmentsCodefencesGuessSyntax = true
 
 [[menu.main]]
     name = "Home"
-    url = ""
+    url = "public"
     weight = 1
 
 [[menu.main]]
     name = "Projects"
-    url = "projects"
+    url = "public/projects"
     weight = 2
 
 [[menu.main]]
     name = "Resume"
-    url = "resume"
+    url = "public/resume"
     weight = 3
 
 [[menu.main]]
@@ -68,13 +68,13 @@ pygmentsCodefencesGuessSyntax = true
 [[menu.main]]
     parent = "about"
     name = "About Me"
-    url = "about/about-me"
+    url = "public/about/about-me"
     weight = 1
 
 [[menu.main]]
     parent = "about"
     name = "Courses"
-    url = "about/courses"
+    url = "public/about/courses"
     weight = 2
 
 # Contact information
