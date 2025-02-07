@@ -1,0 +1,421 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Switching to Linux Mint - </title>
+
+  <meta name="description" content="Recently OneDrive has been screwing with my files again, and since I was upgrading to a one terabyte drive anyways, I thought that I would give linux a shot.
+I had been using WSL for a while at this point for a better command line experience, and having had a little experience with Debian on a Raspberry Pi,
+I felt pretty confident in switching over to a new operating system.">
+  <meta name="author" content="George Sleen"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "George Sleen",
+    
+    "url": "https:\/\/georgeSleen.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/georgeSleen.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/georgeSleen.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/georgeSleen.github.io\/blog\/mint-switch\/",
+          "name": "Switching to linux mint"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "George Sleen"
+  },
+  "headline": "Switching to Linux Mint",
+  "description" : "Recently OneDrive has been screwing with my files again, and since I was upgrading to a one terabyte drive anyways, I thought that I would give linux a shot.\nI had been using WSL for a while at this point for a better command line experience, and having had a little experience with Debian on a Raspberry Pi, I felt pretty confident in switching over to a new operating system.\n",
+  "inLanguage" : "en",
+  "wordCount":  581 ,
+  "datePublished" : "2025-02-07T12:00:00\u002b08:00",
+  "dateModified" : "2025-02-07T12:00:00\u002b08:00",
+  "image" : "https:\/\/georgeSleen.github.io\/img\/profile-picture.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/georgeSleen.github.io\/blog\/mint-switch\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/georgeSleen.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/georgeSleen.github.io\/img\/profile-picture.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="Switching to Linux Mint" />
+<meta property="og:description" content="Recently OneDrive has been screwing with my files again, and since I was upgrading to a one terabyte drive anyways, I thought that I would give linux a shot.
+I had been using WSL for a while at this point for a better command line experience, and having had a little experience with Debian on a Raspberry Pi,
+I felt pretty confident in switching over to a new operating system.">
+<meta property="og:image" content="https://georgeSleen.github.io/img/profile-picture.png" />
+<meta property="og:url" content="https://georgeSleen.github.io/blog/mint-switch/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="George Sleen" />
+
+  <meta name="twitter:title" content="Switching to Linux Mint" />
+  <meta name="twitter:description" content="Recently OneDrive has been screwing with my files again, and since I was upgrading to a one terabyte drive anyways, I thought that I would give linux a shot.
+I had been using WSL for a while at this …">
+  <meta name="twitter:image" content="https://georgeSleen.github.io/img/profile-picture.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://georgeSleen.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.143.1">
+  <link rel="alternate" href="https://georgeSleen.github.io/index.xml" type="application/rss+xml" title="George Sleen"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://georgeSleen.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://georgeSleen.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://georgeSleen.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://georgeSleen.github.io/">George Sleen</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Home" href="/">Home</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Projects" href="/projects">Projects</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Resume" href="/george-sleen-resume.pdf">Resume</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Courses" href="/about/courses/courses">Courses</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Blog" href="/blog">Blog</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="George Sleen" href="https://georgeSleen.github.io/">
+            <img class="avatar-img" src="https://georgeSleen.github.io/img/profile-picture.png" alt="George Sleen" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="blog-heading">
+              
+                <h1>Switching to Linux Mint</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>Recently OneDrive has been screwing with my files again, and since I was upgrading to a one terabyte drive anyways, I thought that I would give linux a shot.</p>
+<p>I had been using WSL for a while at this point for a better command line experience, and having had a little experience with Debian on a Raspberry Pi,
+I felt pretty confident in switching over to a new operating system.</p>
+<p>I did a quick search through different Linux distributions and wanted something that gave me a lot of the perks of using Linux,
+while being well-supported and easy to troubleshoot. I&rsquo;m happy to tinker with software until I get it working,
+but this is the machine that I use personally and for school, so I&rsquo;d rather not be wrangling drivers when a problem set is due in two hours.</p>
+<img src="linux-greentext.png" width="500" alt="Linux Greentext">
+<p>I briefly considered Ubuntu, but remembered an old Linus Tech Tips video where he uses Mint and says it&rsquo;s been his favorite distro so far.
+I checked out the distro and I thought it looked good, so I got a bootable USB flash drive ready and went to install Mint!</p>
+<p>Unfortunately, there are still some things that you can&rsquo;t do without Windows.
+SolidWorks in particular was a huge reason why I hadn&rsquo;t made the switch earlier.
+So I decided to split my 1T SSD into three partitions: a 250G Windows partition, a 250G Mint partition, and a 500G data partition.</p>
+<p>I went and installed the 1T drive into my laptop prepared to boot from the flash drive&hellip; but I ran into issues before even getting into the OS.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">Failed</span> <span class="n">to</span> <span class="n">open</span> \<span class="n">EFI</span>\<span class="n">BOOT</span>\<span class="n">mmx64</span><span class="o">.</span><span class="n">efi</span> <span class="o">-</span> <span class="n">Not</span> <span class="n">Found</span>
+</span></span><span class="line"><span class="cl"><span class="n">Failed</span> <span class="n">to</span> <span class="nb">load</span> <span class="n">image</span><span class="p">:</span> <span class="n">Not</span> <span class="n">Found</span>
+</span></span><span class="line"><span class="cl"><span class="n">Failed</span> <span class="n">to</span> <span class="n">start</span> <span class="n">MokManager</span><span class="p">:</span> <span class="n">Not</span> <span class="n">Found</span>
+</span></span><span class="line"><span class="cl"><span class="n">Something</span> <span class="n">has</span> <span class="n">gone</span> <span class="n">seriously</span> <span class="n">wrong</span><span class="p">:</span> <span class="n">import_mok_state</span><span class="p">()</span> <span class="n">failed</span><span class="p">:</span> <span class="n">Not</span> <span class="n">Found</span>
+</span></span></code></pre></div><p>This was the test to see if I was prepared to use Linux.</p>
+<p>There were many suggestions online on why this was happening, the most common being secure boot being enabled.
+I tried a bunch of boot options but none of them seemed to fix it, eventually I came across a solution that was to rename the file to boot from named &ldquo;grubx64.efi&rdquo;
+to &ldquo;mmx64.efi&rdquo; which looking at the error message seems really obvious.</p>
+<p>After this though, everything was very smooth to set up. I set up a Windows partition, attempted to install Windows without OneDrive,
+but ultimately couldn&rsquo;t be bothered to jump through the INSANE amount of hoops required to do so.
+I just booted in and disabled it before it could &ldquo;help&rdquo; by adding more of my folders and files to OneDrive.
+After that I copied my files over from my old 500G SSD and set up the Mint partition.</p>
+<p>I&rsquo;d never realized just how much bloat is on a Windows install until I opened up Mint, and Mint is definitely <em>not</em> one of the leanest Linux Distros.
+It was shockingly easy to set up all the software that I&rsquo;d been using on Windows and configure it just how I liked.</p>
+<img src="neofetch-mint-cropped.png" width="500" alt="Neofetch on my Mint install">
+<p>I&rsquo;ve been daily driving Mint for almost a month now, and while I enjoy it much more than Windows so far, I see why Linux isn&rsquo;t for everyone.
+You don&rsquo;t <em>have</em> to be proficient with a CLI, but I think that it helps a lot to have that tool when you need it.
+I also find that playing around with the OS is quite fun, even though I chose a fairly &ldquo;beginner&rdquo; distro.
+For something that &ldquo;just works&rdquo; nothing beats OSX and Windows.</p>
+
+
+        
+
+        
+
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+          
+        </ul>
+      
+
+
+      
+      
+      
+      
+      
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+		
+		  <a href="mailto:gsleen@gmail.com" title="Email me">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://github.com/georgeSleen" title="GitHub">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://linkedin.com/in/george-sleen" title="LinkedIn">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="georgeSleen.github.io">George Sleen</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2025
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://georgeSleen.github.io/">George Sleen</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.143.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://georgeSleen.github.io/js/main.js"></script>
+<script src="https://georgeSleen.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://georgeSleen.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

@@ -8,8 +8,15 @@
     <language>en</language>
     <managingEditor>gsleen@gmail.com (George Sleen)</managingEditor>
     <webMaster>gsleen@gmail.com (George Sleen)</webMaster>
-    <lastBuildDate>Sat, 01 Feb 2025 12:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 07 Feb 2025 12:00:00 +0800</lastBuildDate>
     <atom:link href="https://georgeSleen.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Switching to Linux Mint</title>
+      <link>https://georgeSleen.github.io/blog/mint-switch/</link>
+      <pubDate>Fri, 07 Feb 2025 12:00:00 +0800</pubDate><author>gsleen@gmail.com (George Sleen)</author>
+      <guid>https://georgeSleen.github.io/blog/mint-switch/</guid>
+      <description>&lt;p&gt;Recently OneDrive has been screwing with my files again, and since I was upgrading to a one terabyte drive anyways, I thought that I would give linux a shot.&lt;/p&gt;&#xA;&lt;p&gt;I had been using WSL for a while at this point for a better command line experience, and having had a little experience with Debian on a Raspberry Pi,&#xA;I felt pretty confident in switching over to a new operating system.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Legacy Portfolio</title>
       <link>https://georgeSleen.github.io/mech-portfolio.pdf</link>
