@@ -19,45 +19,17 @@
     </item>
     <item>
       <title>Legacy Portfolio</title>
-      <link>https://georgeSleen.github.io/content/projects/legacy-portfolio/mech-portfolio.png</link>
+      <link>https://georgeSleen.github.io/projects/legacy-portfolio/</link>
       <pubDate>Sat, 01 Feb 2025 12:00:00 +0800</pubDate><author>gsleen@gmail.com (George Sleen)</author>
-      <guid>https://georgeSleen.github.io/content/projects/legacy-portfolio/mech-portfolio.png</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Microcouple</title>
-      <link>https://georgeSleen.github.io/projects/microcouple/</link>
-      <pubDate>Wed, 01 Jan 2025 12:00:00 +0800</pubDate><author>gsleen@gmail.com (George Sleen)</author>
-      <guid>https://georgeSleen.github.io/projects/microcouple/</guid>
-      <description>&lt;p&gt;Under Construction&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>SUBC - UBC&#39;s Submarine Design Team</title>
-      <link>https://georgeSleen.github.io/projects/subc/</link>
-      <pubDate>Wed, 01 Jan 2025 12:00:00 +0800</pubDate><author>gsleen@gmail.com (George Sleen)</author>
-      <guid>https://georgeSleen.github.io/projects/subc/</guid>
-      <description>&lt;p&gt;Under Construction&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Machined Phone Stand</title>
-      <link>https://georgeSleen.github.io/projects/phone-stand/</link>
-      <pubDate>Sun, 01 Dec 2024 12:00:00 +0800</pubDate><author>gsleen@gmail.com (George Sleen)</author>
-      <guid>https://georgeSleen.github.io/projects/phone-stand/</guid>
-      <description>&lt;p&gt;Under Construction&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Speed Controlled Servo Motor</title>
-      <link>https://georgeSleen.github.io/projects/speed-servo/</link>
-      <pubDate>Fri, 01 Nov 2024 12:00:00 +0800</pubDate><author>gsleen@gmail.com (George Sleen)</author>
-      <guid>https://georgeSleen.github.io/projects/speed-servo/</guid>
-      <description>&lt;p&gt;Under Construction&lt;/p&gt;</description>
+      <guid>https://georgeSleen.github.io/projects/legacy-portfolio/</guid>
+      <description>&lt;img src=&#34;mech-portfolio.png&#34; width=&#34;1652&#34; alt=&#34;old portfolio 1&#34;&gt;&#xA;&lt;h1&gt;&lt;/h1&gt;&#xA;&lt;img src=&#34;1.png&#34; width=&#34;1652&#34; alt=&#34;old portfolio 2&#34;&gt;</description>
     </item>
     <item>
       <title>Lyra: An 8-bit computer</title>
       <link>https://georgeSleen.github.io/projects/8bit-computer/</link>
       <pubDate>Thu, 01 Aug 2024 12:00:00 +0800</pubDate><author>gsleen@gmail.com (George Sleen)</author>
       <guid>https://georgeSleen.github.io/projects/8bit-computer/</guid>
-      <description>&lt;p&gt;Under Construction&lt;/p&gt;</description>
+      <description></description>
     </item>
     <item>
       <title>Wifi Connected Dorm Room Lights</title>
@@ -65,13 +37,6 @@
       <pubDate>Sun, 01 Oct 2023 12:00:00 +0800</pubDate><author>gsleen@gmail.com (George Sleen)</author>
       <guid>https://georgeSleen.github.io/projects/dorm-light/</guid>
       <description>&lt;p&gt;Late one night, in a procrastination-fueled productivity burst, I decided that I wanted to connect something physical to the internet.&#xA;While a door that automatically opens when I get close would be cool, I didn&amp;rsquo;t feel like introducing a software vulnerability to where I sleep.&#xA;So calling on a recent memory of my friend telling me &amp;ldquo;your dorm room light is always on&amp;rdquo; I decided to hook up my light switch to the internet, so I could turn it off anywhere.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Resin Dice</title>
-      <link>https://georgeSleen.github.io/projects/resin-dice/</link>
-      <pubDate>Wed, 01 Jun 2022 12:00:00 +0800</pubDate><author>gsleen@gmail.com (George Sleen)</author>
-      <guid>https://georgeSleen.github.io/projects/resin-dice/</guid>
-      <description>&lt;p&gt;Under Construction&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
