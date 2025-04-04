@@ -60,11 +60,11 @@
       <description>&lt;p&gt;Under Construction&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Wifi Connected Lights</title>
-      <link>https://georgeSleen.github.io/projects/wifi-lights/</link>
+      <title>Wifi Connected Dorm Room Lights</title>
+      <link>https://georgeSleen.github.io/projects/dorm-light/</link>
       <pubDate>Sun, 01 Oct 2023 12:00:00 +0800</pubDate><author>gsleen@gmail.com (George Sleen)</author>
-      <guid>https://georgeSleen.github.io/projects/wifi-lights/</guid>
-      <description>&lt;p&gt;Under Construction&lt;/p&gt;</description>
+      <guid>https://georgeSleen.github.io/projects/dorm-light/</guid>
+      <description>&lt;p&gt;Late one night, in a procrastination-fueled productivity burst, I decided that I wanted to connect something physical to the internet.&#xA;While a door that automatically opens when I get close would be cool, I didn&amp;rsquo;t feel like introducing a software vulnerability to where I sleep.&#xA;So calling on a recent memory of my friend telling me &amp;ldquo;your dorm room light is always on&amp;rdquo; I decided to hook up my light switch to the internet, so I could turn it off anywhere.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Resin Dice</title>
