@@ -8,14 +8,28 @@
     <language>en</language>
     <managingEditor>gsleen@gmail.com (George Sleen)</managingEditor>
     <webMaster>gsleen@gmail.com (George Sleen)</webMaster>
-    <lastBuildDate>Fri, 07 Feb 2025 12:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 12 Apr 2025 12:00:00 +0800</lastBuildDate>
     <atom:link href="https://georgeSleen.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ST-Link, Blue Pills, and Compiling for Clones</title>
+      <link>https://georgeSleen.github.io/blog/st-clones/</link>
+      <pubDate>Sat, 12 Apr 2025 12:00:00 +0800</pubDate><author>gsleen@gmail.com (George Sleen)</author>
+      <guid>https://georgeSleen.github.io/blog/st-clones/</guid>
+      <description>&lt;p&gt;Moving away from Arduino for embedded systems comes with lots of perks,&#xA;like live debugging, higher clock speeds, and more performant code.&#xA;Unfortunately,&#xA;it also means giving up a very nice abstraction layer between your code and bare metal on the microcontroller.&lt;/p&gt;&#xA;&lt;h3 id=&#34;the-blue-pill&#34;&gt;The Blue Pill&lt;/h3&gt;&#xA;&lt;p&gt;The &amp;ldquo;Blue Pill&amp;rdquo; is a little dev board based around the STM32F103 in an arduino nano form factor.&#xA;It&amp;rsquo;s a fairly popular and affordable starting point for anyone going beyond the Arduino ecosystem,&#xA;and it&amp;rsquo;s well documented by the community which is nice as a novice.&#xA;It can be challenging to source one with legitimate parts, which turns out to be a small headache later.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Switching to Linux Mint</title>
       <link>https://georgeSleen.github.io/blog/mint-switch/</link>
       <pubDate>Fri, 07 Feb 2025 12:00:00 +0800</pubDate><author>gsleen@gmail.com (George Sleen)</author>
       <guid>https://georgeSleen.github.io/blog/mint-switch/</guid>
-      <description>&lt;p&gt;Recently OneDrive has been screwing with my files again, and since I was upgrading to a one terabyte drive anyways, I thought that I would give linux a shot.&lt;/p&gt;&#xA;&lt;p&gt;I had been using WSL for a while at this point for a better command line experience, and having had a little experience with Debian on a Raspberry Pi,&#xA;I felt pretty confident in switching over to a new operating system.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Recently OneDrive has been screwing with my files again,&#xA;and since I was upgrading to a one terabyte drive anyway, I thought that I would give linux a chance.&lt;/p&gt;&#xA;&lt;p&gt;I had been using WSL for a while at this point for a better command line experience, and having had a little experience with Debian on a Raspberry Pi,&#xA;I felt pretty confident in switching over to a new operating system.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Wifi Connected Dorm Room Lights</title>
+      <link>https://georgeSleen.github.io/blog/dorm-light/</link>
+      <pubDate>Sun, 01 Oct 2023 12:00:00 +0800</pubDate><author>gsleen@gmail.com (George Sleen)</author>
+      <guid>https://georgeSleen.github.io/blog/dorm-light/</guid>
+      <description>&lt;p&gt;Late one night, in a procrastination-fueled productivity burst, I decided that I wanted to connect something physical to the internet.&#xA;While a door that automatically opens when I get close would be cool, I didn&amp;rsquo;t feel like introducing a software vulnerability to where I sleep.&#xA;So calling on a recent memory of my friend telling me &amp;ldquo;your dorm room light is always on&amp;rdquo; I decided to hook up my light switch to the internet, so I could turn it off anywhere.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

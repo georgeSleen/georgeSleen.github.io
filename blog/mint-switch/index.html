@@ -14,7 +14,8 @@
 
       <title>Switching to Linux Mint - George Sleen</title>
 
-  <meta name="description" content="Recently OneDrive has been screwing with my files again, and since I was upgrading to a one terabyte drive anyways, I thought that I would give linux a shot.
+  <meta name="description" content="Recently OneDrive has been screwing with my files again,
+and since I was upgrading to a one terabyte drive anyway, I thought that I would give linux a chance.
 I had been using WSL for a while at this point for a better command line experience, and having had a little experience with Debian on a Raspberry Pi,
 I felt pretty confident in switching over to a new operating system.">
   <meta name="author" content="George Sleen"/><script type="application/ld+json">
@@ -65,7 +66,7 @@ I felt pretty confident in switching over to a new operating system.">
     "name" : "George Sleen"
   },
   "headline": "Switching to Linux Mint",
-  "description" : "Recently OneDrive has been screwing with my files again, and since I was upgrading to a one terabyte drive anyways, I thought that I would give linux a shot.\nI had been using WSL for a while at this point for a better command line experience, and having had a little experience with Debian on a Raspberry Pi, I felt pretty confident in switching over to a new operating system.\n",
+  "description" : "Recently OneDrive has been screwing with my files again, and since I was upgrading to a one terabyte drive anyway, I thought that I would give linux a chance.\nI had been using WSL for a while at this point for a better command line experience, and having had a little experience with Debian on a Raspberry Pi, I felt pretty confident in switching over to a new operating system.\n",
   "inLanguage" : "en",
   "wordCount":  587 ,
   "datePublished" : "2025-02-07T12:00:00\u002b08:00",
@@ -88,7 +89,8 @@ I felt pretty confident in switching over to a new operating system.">
 
 
 <meta property="og:title" content="Switching to Linux Mint" />
-<meta property="og:description" content="Recently OneDrive has been screwing with my files again, and since I was upgrading to a one terabyte drive anyways, I thought that I would give linux a shot.
+<meta property="og:description" content="Recently OneDrive has been screwing with my files again,
+and since I was upgrading to a one terabyte drive anyway, I thought that I would give linux a chance.
 I had been using WSL for a while at this point for a better command line experience, and having had a little experience with Debian on a Raspberry Pi,
 I felt pretty confident in switching over to a new operating system.">
 <meta property="og:image" content="https://georgeSleen.github.io/img/profile-picture.png" />
@@ -97,7 +99,8 @@ I felt pretty confident in switching over to a new operating system.">
 <meta property="og:site_name" content="George Sleen" />
 
   <meta name="twitter:title" content="Switching to Linux Mint" />
-  <meta name="twitter:description" content="Recently OneDrive has been screwing with my files again, and since I was upgrading to a one terabyte drive anyways, I thought that I would give linux a shot.
+  <meta name="twitter:description" content="Recently OneDrive has been screwing with my files again,
+and since I was upgrading to a one terabyte drive anyway, I thought that I would give linux a chance.
 I had been using WSL for a while at this …">
   <meta name="twitter:image" content="https://georgeSleen.github.io/img/profile-picture.png" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -141,7 +144,7 @@ I had been using WSL for a while at this …">
         
           
             <li>
-              <a title="Resume" href="/george-sleen-resume.pdf">Resume</a>
+              <a title="Blog" href="/blog">Blog</a>
             </li>
           
         
@@ -153,7 +156,7 @@ I had been using WSL for a while at this …">
         
           
             <li>
-              <a title="Blog" href="/blog">Blog</a>
+              <a title="Resume" href="/george-sleen-resume.pdf">Resume</a>
             </li>
           
         
@@ -270,13 +273,24 @@ I had been using WSL for a while at this …">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Recently OneDrive has been screwing with my files again, and since I was upgrading to a one terabyte drive anyways, I thought that I would give linux a shot.</p>
+        <p>Recently OneDrive has been screwing with my files again,
+and since I was upgrading to a one terabyte drive anyway, I thought that I would give linux a chance.</p>
 <p>I had been using WSL for a while at this point for a better command line experience, and having had a little experience with Debian on a Raspberry Pi,
 I felt pretty confident in switching over to a new operating system.</p>
 <p>I did a quick search through different Linux distributions and wanted something that gave me a lot of the perks of using Linux,
 while being well-supported and easy to troubleshoot. I&rsquo;m happy to tinker with software until I get it working,
 but this is the machine that I use personally and for school, so I&rsquo;d rather not be wrangling drivers when a problem set is due in two hours.</p>
-<img src="linux-greentext.png" width="500" alt="Linux Greentext">
+
+<link rel="stylesheet" href="https://georgeSleen.github.io/css/hugo-easy-gallery.css" />
+<div class="box" style="max-width:500">
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="linux-greentext.png" alt="Linux greentext"/>
+    </div>
+    <a href="linux-greentext.png" itemprop="contentUrl"></a>
+  </figure>
+</div>
+
 <p>I briefly considered Ubuntu, but remembered an old Linus Tech Tips video where he uses Mint and says it&rsquo;s been his favorite distro so far.
 I checked out the distro and I thought it looked good, so I got a bootable USB flash drive ready and went to install Mint!</p>
 <p>Unfortunately, there are still some things that you can&rsquo;t do without Windows.
@@ -289,15 +303,29 @@ So I decided to split my 1T SSD into three partitions: a 250G Windows partition,
 </span></span><span class="line"><span class="cl"><span class="n">Something</span> <span class="n">has</span> <span class="n">gone</span> <span class="n">seriously</span> <span class="n">wrong</span><span class="p">:</span> <span class="n">import_mok_state</span><span class="p">()</span> <span class="n">failed</span><span class="p">:</span> <span class="n">Not</span> <span class="n">Found</span>
 </span></span></code></pre></div><p>This was the test to see if I was prepared to use Linux.</p>
 <p>There were many suggestions online on why this was happening, the most common being secure boot being enabled.
-I tried a bunch of boot options but none of them seemed to fix it, eventually I came across a solution that was to rename the file to boot from named &ldquo;grubx64.efi&rdquo;
+I tried a bunch of boot options.
+However, none of them seemed to fix it;
+eventually I came across a solution that was to rename the file to boot from named &ldquo;grubx64.efi&rdquo;
 to &ldquo;mmx64.efi&rdquo; which looking at the error message seems really obvious.</p>
-<p>After this though, everything was very smooth to set up. I set up a Windows partition, attempted to install Windows without OneDrive,
-but ultimately couldn&rsquo;t be bothered to jump through the INSANE amount of hoops required to do so.
+<p>After this, though, everything was very smooth to set up.
+I set up a Windows partition, attempted to install Windows without OneDrive,
+but ultimately couldn&rsquo;t be bothered to jump through the INSANE number of hoops required to do so.
 I just booted in and disabled it before it could &ldquo;help&rdquo; by adding more of my folders and files to OneDrive.
-After that I copied my files over from my old 500G SSD and set up the Mint partition.</p>
-<p>I&rsquo;d never realized just how much bloat is on a Windows install until I opened up Mint, and Mint is definitely <em>not</em> one of the leanest Linux Distros.
+After that, I copied my files over from my old 500G SSD and set up the Mint partition.</p>
+<p>I&rsquo;d never realized just how much bloat is on a Windows installation until I opened up Mint,
+and Mint is definitely <em>not</em> one of the leanest Linux Distros.
 It was shockingly easy to set up all the software that I&rsquo;d been using on Windows and configure it just how I liked.</p>
-<img src="neofetch-mint-cropped.png" width="500" alt="Neofetch on my Mint install">
+
+
+<div class="box" style="max-width:500">
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="neofetch-mint-cropped.png" alt="Neofetch on my Mint install"/>
+    </div>
+    <a href="neofetch-mint-cropped.png" itemprop="contentUrl"></a>
+  </figure>
+</div>
+
 <p>I&rsquo;ve been daily driving Mint for almost a month now, and while I enjoy it much more than Windows so far, I see why Linux isn&rsquo;t for everyone.
 You don&rsquo;t <em>have</em> to be proficient with a CLI, but I think that it helps a lot to have that tool when you need it.
 I also find that playing around with the OS is quite fun, even though I chose a fairly &ldquo;beginner&rdquo; distro.
@@ -314,6 +342,14 @@ For something that &ldquo;just works&rdquo; nothing beats OSX and Windows, altho
       
         <ul class="pager blog-pager">
           
+            <li class="previous">
+              <a href="https://georgeSleen.github.io/blog/dorm-light/" data-toggle="tooltip" data-placement="top" title="Wifi Connected Dorm Room Lights">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://georgeSleen.github.io/blog/st-clones/" data-toggle="tooltip" data-placement="top" title="ST-Link, Blue Pills, and Compiling for Clones">Next Post &rarr;</a>
+            </li>
           
         </ul>
       
