@@ -1,0 +1,628 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>ST-Link, Blue Pills, and Compiling for Clones - George Sleen</title>
+
+  <meta name="description" content="Moving away from Arduino for embedded systems comes with lots of perks,
+like live debugging, higher clock speeds, and more performant code.
+Unfortunately,
+it also means giving up a very nice abstraction layer between your code and bare metal on the microcontroller.
+The Blue Pill
+The &ldquo;Blue Pill&rdquo; is a little dev board based around the STM32F103 in an arduino nano form factor.
+It&rsquo;s a fairly popular and affordable starting point for anyone going beyond the Arduino ecosystem,
+and it&rsquo;s well documented by the community which is nice as a novice.
+It can be challenging to source one with legitimate parts, which turns out to be a small headache later.">
+  <meta name="author" content="George Sleen"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "George Sleen",
+    
+    "url": "https:\/\/georgeSleen.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/georgeSleen.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/georgeSleen.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/georgeSleen.github.io\/blog\/st-clones\/",
+          "name": "St link, blue pills, and compiling for clones"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "George Sleen"
+  },
+  "headline": "ST-Link, Blue Pills, and Compiling for Clones",
+  "description" : "Moving away from Arduino for embedded systems comes with lots of perks, like live debugging, higher clock speeds, and more performant code. Unfortunately, it also means giving up a very nice abstraction layer between your code and bare metal on the microcontroller.\nThe Blue Pill The \u0026ldquo;Blue Pill\u0026rdquo; is a little dev board based around the STM32F103 in an arduino nano form factor. It\u0026rsquo;s a fairly popular and affordable starting point for anyone going beyond the Arduino ecosystem, and it\u0026rsquo;s well documented by the community which is nice as a novice. It can be challenging to source one with legitimate parts, which turns out to be a small headache later.\n",
+  "inLanguage" : "en",
+  "wordCount":  1673 ,
+  "datePublished" : "2025-04-12T12:00:00\u002b08:00",
+  "dateModified" : "2025-04-12T12:00:00\u002b08:00",
+  "image" : "https:\/\/georgeSleen.github.io\/img\/profile-picture.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/georgeSleen.github.io\/blog\/st-clones\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/georgeSleen.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/georgeSleen.github.io\/img\/profile-picture.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="ST-Link, Blue Pills, and Compiling for Clones" />
+<meta property="og:description" content="Moving away from Arduino for embedded systems comes with lots of perks,
+like live debugging, higher clock speeds, and more performant code.
+Unfortunately,
+it also means giving up a very nice abstraction layer between your code and bare metal on the microcontroller.
+The Blue Pill
+The &ldquo;Blue Pill&rdquo; is a little dev board based around the STM32F103 in an arduino nano form factor.
+It&rsquo;s a fairly popular and affordable starting point for anyone going beyond the Arduino ecosystem,
+and it&rsquo;s well documented by the community which is nice as a novice.
+It can be challenging to source one with legitimate parts, which turns out to be a small headache later.">
+<meta property="og:image" content="https://georgeSleen.github.io/img/profile-picture.png" />
+<meta property="og:url" content="https://georgeSleen.github.io/blog/st-clones/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="George Sleen" />
+
+  <meta name="twitter:title" content="ST-Link, Blue Pills, and Compiling for Clones" />
+  <meta name="twitter:description" content="Moving away from Arduino for embedded systems comes with lots of perks,
+like live debugging, higher clock speeds, and more performant code.
+Unfortunately,
+it also means giving up a very nice …">
+  <meta name="twitter:image" content="https://georgeSleen.github.io/img/profile-picture.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://georgeSleen.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.145.0">
+  <link rel="alternate" href="https://georgeSleen.github.io/index.xml" type="application/rss+xml" title="George Sleen"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://georgeSleen.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://georgeSleen.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://georgeSleen.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://georgeSleen.github.io/">George Sleen</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Home" href="/">Home</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Projects" href="/projects">Projects</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Blog" href="/blog">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Courses" href="/about/courses/courses">Courses</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Resume" href="/george-sleen-resume.pdf">Resume</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="George Sleen" href="https://georgeSleen.github.io/">
+            <img class="avatar-img" src="https://georgeSleen.github.io/img/profile-picture.png" alt="George Sleen" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="blog-heading">
+              
+                <h1>ST-Link, Blue Pills, and Compiling for Clones</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>Moving away from Arduino for embedded systems comes with lots of perks,
+like live debugging, higher clock speeds, and more performant code.
+Unfortunately,
+it also means giving up a very nice abstraction layer between your code and bare metal on the microcontroller.</p>
+<h3 id="the-blue-pill">The Blue Pill</h3>
+<p>The &ldquo;Blue Pill&rdquo; is a little dev board based around the STM32F103 in an arduino nano form factor.
+It&rsquo;s a fairly popular and affordable starting point for anyone going beyond the Arduino ecosystem,
+and it&rsquo;s well documented by the community which is nice as a novice.
+It can be challenging to source one with legitimate parts, which turns out to be a small headache later.</p>
+<h1></h1>
+
+<link rel="stylesheet" href="https://georgeSleen.github.io/css/hugo-easy-gallery.css" />
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="blue-pill.png" alt="The blue pill development board"/>
+    </div>
+    <a href="blue-pill.png" itemprop="contentUrl"></a>
+  </figure>
+</div>
+
+<p>Mine turns out to have a &ldquo;RESRT&rdquo; button. Much better than the more common &ldquo;RESET.&rdquo;</p>
+<p>While the reasons above are good reasons to get a Blue Pill in and of themselves,
+I know that I&rsquo;ll be using an identical board over the summer during my robot design and competition course.
+The competition is colloquially known as &ldquo;Robot Summer&rdquo;
+and all the second year Engineering Physics students form teams of 4 to design a robot.
+Themes have varied since the course (ENPH 253) was introduced,
+with the most recent one&rsquo;s goal being to play &ldquo;Overcooked,&rdquo; but they&rsquo;ve all used an STM32 MCU.</p>
+<h1></h1>
+
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="robot-summer-thumbnail.jpg" alt="Previous Robot Summer Competition."/>
+    </div>
+    <a href="robot-summer-thumbnail.jpg" itemprop="contentUrl"></a>
+  </figure>
+</div>
+
+<p>Last year&rsquo;s Robot Summer competition.</p>
+<p>Since I was interested regardless, I bought the least expensive Blue Pill I could find on Amazon.
+But only having experience with dev boards that have a USB programming interface enabled by default,
+I didn&rsquo;t realize that I wouldn&rsquo;t be able to do anything with the board right away.</p>
+<p>I either needed to get a USB to serial converter, or an ST-Link to talk to the board at first.
+Since the ST-Link allows for live debugging with breakpoints,
+I opted to also buy the cheapest version of that I could find on Amazon as well.
+After that, it&rsquo;s possible to load a bootloader with USB communication,
+but it lacks some of the awesome features of using an ST-Link, so I haven&rsquo;t gotten around to doing that yet.</p>
+<h1></h1>
+
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="st-link.png" alt="ST-Link V2."/>
+    </div>
+    <a href="st-link.png" itemprop="contentUrl"></a>
+  </figure>
+</div>
+
+<h3 id="connecting-to-the-board">Connecting to the Board</h3>
+<p>Connecting to the Blue Pill is easy, just connecting power, SWCLK, and SWIO
+should mean that you can talk to the MCU with a little bit of software on your computer.</p>
+<p>I went ahead and downloaded stlink-tools to my computer, an open source package for using an ST-Link:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install stlink-tools
+</span></span></code></pre></div><p>Then it&rsquo;s possible to probe the computer to see the ST-Link connected to any of the USB ports
+(alternatively, lsusb can show you if it&rsquo;s detected on a USB port).</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">st-info --probe
+</span></span></code></pre></div><p>Which should result in something like this if a board is connected to the SWD interface:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Found <span class="m">1</span> stlink programmers
+</span></span><span class="line"><span class="cl">  version:    V2J46S7
+</span></span><span class="line"><span class="cl">  serial:     1B0024000B2D363637365744
+</span></span><span class="line"><span class="cl">  flash:      <span class="m">131072</span> <span class="o">(</span>pagesize: 1024<span class="o">)</span>
+</span></span><span class="line"><span class="cl">  sram:       <span class="m">20480</span>
+</span></span><span class="line"><span class="cl">  chipid:     0x410
+</span></span><span class="line"><span class="cl">  dev-type:   STM32F1xx_MD
+</span></span></code></pre></div><p>Great!
+It seems like everything is working no problem,
+even though all of these ST-Link V2s with the thumb-drive shape are clones.
+It even seems like my Blue Pill has 128KiB of flash, even though some only come with 64KiB.</p>
+<h3 id="programming-with-platformio">Programming with PlatformIO</h3>
+<p>Once I confirmed that everything seemed to show up, the next step was to upload some code to the Blue Pill.
+I had a few options to look at, but the big two I was familiar with were the STM32CubeIDE and PlatformIO.</p>
+<h1></h1>
+
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="platformio.jpg" alt="STM32CubeIDE and PlatformIO."/>
+    </div>
+    <a href="platformio.jpg" itemprop="contentUrl"></a>
+  </figure>
+</div>
+
+<h1></h1>
+<p>STM32CubeIDE is STMicroelectronics&rsquo; offering of IDE, designed specifically for their boards.
+It has a LOT of features built in, most of which I don&rsquo;t especially care about for most of my projects,
+but it has an interactive microcontroller setup tool which is great for configuring clocks on the board.
+I downloaded off their website to try it out, but I really dislike fragmenting coding across multiple IDEs.
+After opening it, I also very much disliked just how heavy the IDE felt, so I opted to look into other options.</p>
+<p>I came across this video on programming by Low Level Learning on YouTube
+that goes through flashing an STM32 without an IDE at all,
+which was a good jumping off point, but not exactly what I was looking for.</p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/YEGKD6JQJyM?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p>I very much agree with his dislike of large IDE&rsquo;s like ST&rsquo;s.</p>
+<p>Compiling just from the command line seems like a lot of fun,
+and is something I want to try in the future, but my priority was to get code flashed on the Blue Pill.
+After a little more digging, I found out about PlatformIO, which hit a lot of my boxes.</p>
+<p>It&rsquo;s integrated right into popular IDEs like VSCode and most of the JetBrains IDEs.
+Even though I don&rsquo;t like big IDEs like CubeIDE, I have a soft spot for JetBrains tools.
+I downloaded the plugin for CLion, and everything was super easy to set up.
+I picked the MCU model, the STM32F103C8T6,
+and chose the Arduino hardware abstraction layer (HAL) to test out PlatformIO.</p>
+<p>I wrote the hello world of the embedded world, a blinky light, and went to flash it to the Blue Pill.
+Unfortunately, this was where I paid the price for getting the cheapest ST-Link I could find,
+even though the fix turns out to be quite simple.</p>
+<h3 id="troubleshooting-clones">Troubleshooting clones</h3>
+<p>Whenever I tried to upload my code to the board, everything would compile fine,
+but communicating with the board always gave this error:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">Warn</span> <span class="p">:</span> <span class="n">UNEXPECTED</span> <span class="n">idcode</span><span class="p">:</span> <span class="mh">0x2ba01477</span>
+</span></span><span class="line"><span class="cl"><span class="n">Error</span><span class="p">:</span> <span class="n">expected</span> <span class="mi">1</span> <span class="n">of</span> <span class="mi">1</span><span class="p">:</span> <span class="mh">0x1ba01477</span>
+</span></span><span class="line"><span class="cl"><span class="ow">in</span> <span class="n">procedure</span> <span class="s1">&#39;program&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">**</span> <span class="n">OpenOCD</span> <span class="n">init</span> <span class="n">failed</span> <span class="o">**</span>
+</span></span><span class="line"><span class="cl"><span class="n">shutdown</span> <span class="n">command</span> <span class="n">invoked</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">***</span> <span class="p">[</span><span class="n">upload</span><span class="p">]</span> <span class="n">Error</span> <span class="mi">1</span>
+</span></span></code></pre></div><p>Seems like a pretty easy fix, so I googled the error,
+and lots of other people seemed
+to get the same thing because the ST-Link is built with a clone of the real chip from ST
+(which has CPUTAPID = 0x1ba01477).</p>
+<p>The first suggestion was to add:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-platformio.ini" data-lang="platformio.ini"><span class="line"><span class="cl"><span class="na">upload_flags: -c set _CPUTAPID 0x2ba01477</span>
+</span></span></code></pre></div><p>Which doesn&rsquo;t work because set _CPUTAPID (notice the leading underscore) isn&rsquo;t an argument that makes sense to openOCD,
+the open source debugger and in-system programmer used by platformIO.
+Had I simply read through the documentation for openOCD,
+I would have quickly realized my error, but I spent a little more time googling with everyone else recommending to add:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-platformio.ini" data-lang="platformio.ini"><span class="line"><span class="cl"><span class="na">upload_flags: -c set CPUTAPID 0x2ba01477</span>
+</span></span></code></pre></div><p>to my platformio.ini file.</p>
+<p>Eventually, when I turned to the dark side and asked ChatGPT to help (big mistake).
+I generally find ChatGPT
+to be a good place to find new ideas for debugging when you&rsquo;ve run out of relevant Google searches,
+but this time it led me on a wild goose chase configuring custom compilation files.
+Which didn&rsquo;t work for the same reason as the default compilation wouldn&rsquo;t flash my Blue Pill,
+the link between OpenOCD and my ST-Link was broken.
+After a while, I was so fed up
+with trying to get things to run that I put everything away for a day to come back and try another time.</p>
+<p>The next day I opened up my terminal and just tried to get OpenOCD to work, which turned out to be pretty easy.
+I also noticed my mistake from yesterday with changing the CPU TAP ID,
+but decided to reduce some variables and still try OpenOCD on its own.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Bash" data-lang="Bash"><span class="line"><span class="cl">openocd -f interface/stlink.cfg -f target/stm32f1x.cfg -c <span class="s2">&#34;set CPUTAPID 0x2ba01477&#34;</span>
+</span></span></code></pre></div><p>which seemed to give me the same error:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Open On-Chip Debugger 0.12.0
+</span></span><span class="line"><span class="cl">Licensed under GNU GPL v2
+</span></span><span class="line"><span class="cl">For bug reports, read
+</span></span><span class="line"><span class="cl">	http://openocd.org/doc/doxygen/bugs.html
+</span></span><span class="line"><span class="cl">Info : auto-selecting first available session transport &#34;hla_swd&#34;. To override use &#39;transport select &lt;transport&gt;&#39;.
+</span></span><span class="line"><span class="cl">Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+</span></span><span class="line"><span class="cl">0x2ba01477
+</span></span><span class="line"><span class="cl">Info : Listening on port 6666 for tcl connections
+</span></span><span class="line"><span class="cl">Info : Listening on port 4444 for telnet connections
+</span></span><span class="line"><span class="cl">Info : clock speed 1000 kHz
+</span></span><span class="line"><span class="cl">Info : STLINK V2J46S7 (API v2) VID:PID 0483:3748
+</span></span><span class="line"><span class="cl">Info : Target voltage: 3.208438
+</span></span><span class="line"><span class="cl">Warn : UNEXPECTED idcode: 0x2ba01477
+</span></span><span class="line"><span class="cl">Error: expected 1 of 1: 0x1ba01477
+</span></span></code></pre></div><p>I was pretty frustrated at this point,
+but I finally ended up finding a forum post that said to set the TAP ID before anything else after a few hours.
+I tried it, and it seemed to finally work; the light on my ST-Link started to blink as well!</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$  openocd -c &#34;set CPUTAPID 0x2ba01477&#34; -f interface/stlink.cfg -f target/stm32f1x.cfg
+</span></span><span class="line"><span class="cl">Open On-Chip Debugger 0.12.0
+</span></span><span class="line"><span class="cl">Licensed under GNU GPL v2
+</span></span><span class="line"><span class="cl">For bug reports, read
+</span></span><span class="line"><span class="cl">	http://openocd.org/doc/doxygen/bugs.html
+</span></span><span class="line"><span class="cl">0x2ba01477
+</span></span><span class="line"><span class="cl">Info : auto-selecting first available session transport &#34;hla_swd&#34;. To override use &#39;transport select &lt;transport&gt;&#39;.
+</span></span><span class="line"><span class="cl">Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+</span></span><span class="line"><span class="cl">Info : Listening on port 6666 for tcl connections
+</span></span><span class="line"><span class="cl">Info : Listening on port 4444 for telnet connections
+</span></span><span class="line"><span class="cl">Info : clock speed 1000 kHz
+</span></span><span class="line"><span class="cl">Info : STLINK V2J46S7 (API v2) VID:PID 0483:3748
+</span></span><span class="line"><span class="cl">Info : Target voltage: 3.208438
+</span></span><span class="line"><span class="cl">Info : [stm32f1x.cpu] Cortex-M3 r2p0 processor detected
+</span></span><span class="line"><span class="cl">Info : [stm32f1x.cpu] target has 6 breakpoints, 4 watchpoints
+</span></span><span class="line"><span class="cl">Info : starting gdb server for stm32f1x.cpu on 3333
+</span></span><span class="line"><span class="cl">Info : Listening on port 3333 for gdb connections
+</span></span></code></pre></div><p>I went back to platformIO and changed my configuration file to what it should have been the first time.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-platformio.ini" data-lang="platformio.ini"><span class="line"><span class="cl"><span class="k">[env:bluepill_f103c8]</span>
+</span></span><span class="line"><span class="cl"><span class="na">platform</span> <span class="o">=</span> <span class="s">ststm32</span>
+</span></span><span class="line"><span class="cl"><span class="na">board</span> <span class="o">=</span> <span class="s">bluepill_f103c8</span>
+</span></span><span class="line"><span class="cl"><span class="na">framework</span> <span class="o">=</span> <span class="s">arduino</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="na">upload_flags:</span>
+</span></span><span class="line"><span class="cl">    <span class="na">-c set CPUTAPID 0x2ba01477</span>
+</span></span></code></pre></div><p>Success! Everything compiled and now my light is blinky.</p>
+<p>But the really cool thing to do with SWD is to have live debugging,
+so I tried hitting the debug button in CLion but came up against the same error of a mismatched CPUTAPID.
+This time, I was prepared.
+With just a little more forum searching, I saw that I just needed to add this to my configuration file:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-platformio.ini" data-lang="platformio.ini"><span class="line"><span class="cl"><span class="na">debug_server</span> <span class="o">=</span><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">    openocd
+</span></span></span><span class="line"><span class="cl"><span class="s">    -c &#34;set CPUTAPID 0x2ba01477&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">    -f
+</span></span></span><span class="line"><span class="cl"><span class="s">    interface/stlink.cfg
+</span></span></span><span class="line"><span class="cl"><span class="s">    -f
+</span></span></span><span class="line"><span class="cl"><span class="s">    target/stm32f1x.cfg</span>
+</span></span></code></pre></div><video controls autoplay muted loop style="max-width: 100%; height: auto;">
+  <source src="live-debugging.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<p>In the bottom right you can see the LED turn on add off with the code I&rsquo;m stepping through.</p>
+<h3 id="future-plans">Future plans</h3>
+<p>Being able to step through my microcontroller&rsquo;s code in real time is extremely cool,
+and it makes debugging complex programs much easier.
+The next thing I want to tackle is using the STM32 HAL,
+as it seems to be much more performant and gives you much more control over the MCU,
+while maintaining the portability and readability that makes a HAL so attractive.</p>
+
+
+        
+
+        
+
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://georgeSleen.github.io/blog/mint-switch/" data-toggle="tooltip" data-placement="top" title="Switching to Linux Mint">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+      
+      
+      
+      
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+		
+		  <a href="mailto:gsleen@gmail.com" title="Email me">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://github.com/georgeSleen" title="GitHub">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://linkedin.com/in/george-sleen" title="LinkedIn">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="georgeSleen.github.io">George Sleen</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2025
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://georgeSleen.github.io/">George Sleen</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.145.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://georgeSleen.github.io/js/main.js"></script>
+<script src="https://georgeSleen.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://georgeSleen.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+
